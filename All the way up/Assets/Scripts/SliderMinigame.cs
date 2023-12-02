@@ -2,9 +2,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using static GlobalDelegateEvents;
 
-public class SliderMinigame : MonoBehaviour
+public class SliderMinigame : MinigameComponent
 {
-    public static event OnWinMinigame OnWinMinigame;
     [SerializeField]
     List<GameObject> easySliderPrefabs;
     [SerializeField]
@@ -56,7 +55,7 @@ public class SliderMinigame : MonoBehaviour
             currentSlider++;
             if(currentSlider == gameSliders.Count)
             {
-                OnWinMinigame?.Invoke();
+                OnWinMinigame();
             } else
             {
                 gameSliders[currentSlider].StartMoving();
