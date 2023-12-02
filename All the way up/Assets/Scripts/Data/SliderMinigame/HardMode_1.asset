@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f69c38c38c8b17d4490aaf227cc68cab, type: 3}
   m_Name: HardMode_1
   m_EditorClassIdentifier: 
-  speed: 1
-  visualInit: 570
-  visualEnd: 35
-  valueInint: 82
-  valueEnd: 95
+  speed: 2
+  visualInit: 580
+  visualEnd: 45
+  valueInint: 83
+  valueEnd: 93

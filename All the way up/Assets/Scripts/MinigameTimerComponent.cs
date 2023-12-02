@@ -8,7 +8,7 @@ public class MinigameTimerComponent : MonoBehaviour
 {
     public static event OnLoseMinigame OnLoseEvent;
 
-    float maxTimeRemainig = 60f;
+    [SerializeField] float maxTimeRemainig = 60f;
     float timeRemainig;
     Slider timeRemainingRepresentation;
     bool miniGameRunning = true;

@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f69c38c38c8b17d4490aaf227cc68cab, type: 3}
   m_Name: MediumMode_1
   m_EditorClassIdentifier: 
-  speed: 1.15
-  visualInit: 30
-  visualEnd: 535
-  valueInint: 5
-  valueEnd: 23
+  speed: 1.5
+  visualInit: 50
+  visualEnd: 550
+  valueInint: 7
+  valueEnd: 21
