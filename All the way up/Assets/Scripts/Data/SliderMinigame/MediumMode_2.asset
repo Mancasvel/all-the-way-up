@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f69c38c38c8b17d4490aaf227cc68cab, type: 3}
+  m_Name: MediumMode_2
+  m_EditorClassIdentifier: 
+  speed: 1.15
+  visualInit: 380
+  visualEnd: 65
+  valueInint: 55
+  valueEnd: 90
