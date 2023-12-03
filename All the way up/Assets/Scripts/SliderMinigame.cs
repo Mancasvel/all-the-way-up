@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using static GlobalDelegateEvents;
 
+[RequireComponent(typeof(AudioSource))]
 public class SliderMinigame : MinigameComponent
 {
     [SerializeField]
@@ -19,9 +20,18 @@ public class SliderMinigame : MinigameComponent
     Transform hardSliderPosition;
     [SerializeField]
     List<MovingSliderComponent> gameSliders = new List<MovingSliderComponent>();
+    [SerializeField]
+    AudioClip successClip;
+    [SerializeField]
+    AudioClip wrongClip;
+
+    AudioSource audioSource;
 
     int currentSlider = 0;
-
+    private void Awake()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
     private void OnEnable()
     {
         MovingSliderComponent easyMovingSlider = Instantiate(easySliderPrefabs[Random.Range(0, easySliderPrefabs.Count)], gameObject.transform).GetComponent<MovingSliderComponent>();
@@ -52,6 +62,7 @@ public class SliderMinigame : MinigameComponent
         bool success = gameSliders[currentSlider].IsSuccess();
         if (success)
         {
+            audioSource.PlayOneShot(successClip);
             currentSlider++;
             if(currentSlider == gameSliders.Count)
             {
@@ -62,6 +73,7 @@ public class SliderMinigame : MinigameComponent
             }
         } else
         {
+            audioSource.PlayOneShot(wrongClip);
             currentSlider = 0;
             ResetSliders();
             gameSliders[currentSlider].StartMoving();
