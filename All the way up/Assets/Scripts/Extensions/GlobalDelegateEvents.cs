@@ -6,4 +6,5 @@ public static class GlobalDelegateEvents
 {
     public delegate void OnWinMinigame();
     public delegate void OnLoseMinigame();
+    public delegate int OnClickMinigameItem();
 }

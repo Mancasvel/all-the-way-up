@@ -12,7 +12,7 @@ public class MinigameResultComposer : MonoBehaviour
 
     private void OnEnable()
     {
-        SliderMinigame.OnWinMinigame += OnWin;
+        MinigameComponent.OnWinMinigameAction += OnWin;
         MinigameTimerComponent.OnLoseEvent += OnLose;
     }
 

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CoffeeMinigameTimer : MinigameTimerComponent
+public class MemoMinigameTimer : MinigameTimerComponent
 {
     private void OnEnable()
     {
@@ -16,7 +16,6 @@ public class CoffeeMinigameTimer : MinigameTimerComponent
 
     private void OnWinMinigame()
     {
-        ModifyGameRunning
-            (false);
+        ModifyGameRunning(false);
     }
 }
