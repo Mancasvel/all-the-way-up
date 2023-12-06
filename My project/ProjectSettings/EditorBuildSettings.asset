@@ -1,0 +1,74 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Menu.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Lore.unity
+    guid: 0b2d29d8f1756bb4c8bcab554f765137
+  - enabled: 1
+    path: Assets/Scenes/Level1Menu.unity
+    guid: 91c486efad7bc6740a590a90a6abf7b7
+  - enabled: 1
+    path: Assets/Scenes/CoffeMachineMinigameScene.unity
+    guid: 3d2fbab71f712b146a9706c8514e3fd5
+  - enabled: 1
+    path: Assets/Scenes/Level1Complete.unity
+    guid: ccc6ce9c8eb6b3e4f98abb5e9652ca71
+  - enabled: 1
+    path: Assets/Scenes/L1Success.unity
+    guid: 9c1156fb823c7dd4fa798e172771bd2f
+  - enabled: 1
+    path: Assets/Scenes/L1Fail.unity
+    guid: 28df6a147135fd648ba25b831c5a45f7
+  - enabled: 1
+    path: Assets/Scenes/Level2Menu.unity
+    guid: 2ba0699e2415277408804d023703075f
+  - enabled: 1
+    path: Assets/Scenes/FridgeMinigameScene.unity
+    guid: fcad9405db12e244f8a71e8484c3fb48
+  - enabled: 1
+    path: Assets/Scenes/L2Complete.unity
+    guid: ecd53a8fde2603040b6a758f107a3cf7
+  - enabled: 1
+    path: Assets/Scenes/L2Succesfully.unity
+    guid: 3be53cbd748b77a499afa575075bc6e0
+  - enabled: 1
+    path: Assets/Scenes/L2Success.unity
+    guid: a2e8679398d2e23419e137af2a1cdfb7
+  - enabled: 1
+    path: Assets/Scenes/L2Fail.unity
+    guid: 8baae84c3e63f62488349d5091c4dc39
+  - enabled: 1
+    path: Assets/Scenes/Level3Menu.unity
+    guid: 08ef95db5b31e3f45bd1a5ae9a8963d7
+  - enabled: 1
+    path: Assets/Scenes/L3Intro.unity
+    guid: 72b5890b50c6b88459c5b3fc36f671fe
+  - enabled: 1
+    path: Assets/Scenes/L3Dialogue.unity
+    guid: 53ba3be7ab228ea4592d15fbcc40ede7
+  - enabled: 1
+    path: Assets/Scenes/MazeMinigameScene.unity
+    guid: bf067958968662a4a9950b820c53e875
+  - enabled: 1
+    path: Assets/Scenes/Level3Complete.unity
+    guid: 1cb0b86d14e89b94bbbdebbd5adbe5b1
+  - enabled: 1
+    path: Assets/Scenes/L3Success.unity
+    guid: d0c3fb01b70cbee4d97a17df0410894b
+  - enabled: 1
+    path: Assets/Scenes/L3Fail.unity
+    guid: 9f99061f71cb6594783e302f88a91686
+  - enabled: 1
+    path: Assets/Scenes/Ending.unity
+    guid: ae50fc99422a0684694ef0d3f53284c4
+  - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: 5263909f86dba6144bcacf6274b8baa6
+  m_configObjects: {}
