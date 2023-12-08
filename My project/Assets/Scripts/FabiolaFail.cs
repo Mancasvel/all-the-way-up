@@ -20,12 +20,10 @@ public class FabiolaFail : MonoBehaviour
     public string[] lines;
     public Button button;
 
-    public string sceneName;
+    [SerializeField]
+    public int sceneToChange;
     public float textSpeed;
     private int index;
-
-    [SerializeField]
-    string sceneToChange;
    
     void Start()
     {
@@ -72,7 +70,7 @@ public class FabiolaFail : MonoBehaviour
 
     public void Load()
     {
-        SceneManager.LoadScene(sceneName);
+        SceneManager.LoadScene(sceneToChange);
     }
 
     public void Dialogue()

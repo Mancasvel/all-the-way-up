@@ -33,13 +33,14 @@ public class MemoryMinigame : MinigameComponent
 
     private void OnEnable()
     {
+        audioSource = GetComponent<AudioSource>();
         int order = 0;
         foreach(FridgeItemData data in itemsData)
         {
             SpriteSwitcherComponent item = Instantiate(fridgeItemPrefab, transform).AddComponent<SpriteSwitcherComponent>();
             SpriteSwitcherComponent clue = Instantiate(fridgeItemPrefab, fridgeItemClues).AddComponent<SpriteSwitcherComponent>();
-            item.Init(data.showingSprite, data.hiddenSprite, order, false);
-            clue.Init(data.showingSprite, data.hiddenSprite, order, true);
+            item.Init(data.showingSprite, data.hiddenSprite, order, false, true);
+            clue.Init(data.showingSprite, data.hiddenSprite, order, true, false);
             clue.UnsuscribeReset();
             fridgeItems.Add(item);
             fridgeItemsClues.Add(clue);
@@ -49,6 +50,10 @@ public class MemoryMinigame : MinigameComponent
 
         SpriteSwitcherComponent.OnClickItemEvent += OnClickedItem;
         orderToComplete = orderToComplete.OrderBy(x => UnityEngine.Random.Range(0, int.MaxValue)).ToList(); ;
+    }
+    private void OnDisable()
+    {
+        SpriteSwitcherComponent.OnClickItemEvent -= OnClickedItem;
     }
     private void Update()
     {

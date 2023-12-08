@@ -20,7 +20,7 @@ public class FabiolaDialogue : MonoBehaviour
     public string[] lines;
     public Button button;
 
-    public string sceneName;
+    public int sceneName;
     public float textSpeed;
     private int index;
    

@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e660ae99afd475648ab38dafa0fad052, type: 3}
   m_Name: FridgeItem_0 4
   m_EditorClassIdentifier: 
-  showingSprite: {fileID: 21300000, guid: 327ace58c62c37747b23381682a8b2c4, type: 3}
-  hiddenSprite: {fileID: 21300000, guid: 439442baf0bac7e46b3a4ab0a5e82058, type: 3}
+  showingSprite: {fileID: 21300000, guid: e500e3d721b6abd458b54185d02b0218, type: 3}
+  hiddenSprite: {fileID: 21300000, guid: e8058f22856ebfe4a861d9bf36b21cf0, type: 3}

@@ -34,22 +34,23 @@ public class SpriteSwitcherComponent : MonoBehaviour
 
     private void OnDisable()
     {
-
         MemoryMinigame.OnResetItems -= ResetImage;
     }
 
     public void UnsuscribeReset()
     {
         MemoryMinigame.OnResetItems -= ResetImage;
+        button.onClick.RemoveAllListeners();
     }
-    public void Init(Sprite showingSprite,  Sprite hiddenSprite, int order, bool showOrder)
+    public void Init(Sprite showingSprite,  Sprite hiddenSprite, int order, bool showOrder, bool interactable)
     {
         this.showingSprite = showingSprite;
         this.hiddenSprite = hiddenSprite;
         this.order = order;
         orderText.text = "";
-        orderText.gameObject.SetActive(showOrder);
         ResetImage();
+        orderText.gameObject.SetActive(showOrder);
+        button.interactable = interactable;
         button.onClick.AddListener(delegate () { ClickOnItem(); });
     }
 

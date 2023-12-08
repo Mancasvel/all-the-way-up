@@ -1,25 +1,30 @@
 using System.Collections;
-using System.Collections.Generic;
 using TMPro;
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class DialogueHelper : MonoBehaviour
 {
     public GameObject dialoguePanel;
     public TMP_Text textComponent;
     public string[] lines;
-
-    public string sceneName;
+    public UnityEvent OnFinishText = new UnityEvent();
     public float textSpeed;
-    private int index;
+    [SerializeField]
+    private int index = 0;
+    private float initialWaitText = 1f;
+    [SerializeField]
+    private bool isTyping = false;
 
-    void Start()
+    IEnumerator Start()
     {
         textComponent.text = string.Empty;
-        StartDialogue();
+        yield return new WaitForSeconds(initialWaitText);
+        if (dialoguePanel)
+        {
+            dialoguePanel.SetActive(true);
+        }
+        NextLine();
     }
 
 
@@ -27,84 +32,74 @@ public class DialogueHelper : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
         {
-            if (textComponent.text == lines[index])
+            if (isLastText() && !isTyping)
             {
-                NextLine();
-
+                OnFinishText?.Invoke();
             }
             else
             {
-                StopAllCoroutines();
-                textComponent.text = lines[index];
-                index++;
+                if (!isTyping)
+                {
+                    NextLine();
+                }
+                else
+                {
+                    PrintLineComplete();
+                }
             }
-            CheckIfLastText();
         }
         if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            if (textComponent.text == lines[index])
-            {
-                PreviousLine();
-
-            }
-            else
-            {
-                StopAllCoroutines();
-                textComponent.text = lines[index];
-            }
+            PreviousLine();
         }
     }
 
-    public void StartDialogue()
-    {
-        index = 0;
-        StartCoroutine(TypeLine());
-    }
-    IEnumerator TypeLine()
-    {
-        foreach (char c in lines[index].ToCharArray())
-        {
-            textComponent.text += c;
-            yield return new WaitForSeconds(textSpeed);
-        }
-    }
+
 
     void NextLine()
     {
         if (index < lines.Length - 1)
         {
             index++;
-            textComponent.text = string.Empty;
-            StartCoroutine(TypeLine());
-        }
-        if (index >= 1)
-        {
-            dialoguePanel?.SetActive(true);
+            ResetTyping();
         }
     }
-
     void PreviousLine()
     {
+        StopAllCoroutines();
         if (index > 0)
         {
             index--;
-            textComponent.text = string.Empty;
-            StartCoroutine(TypeLine());
-        }
-
-        if (index == 0)
-        {
-            dialoguePanel?.SetActive(false);
+            PrintLineComplete();
         }
 
     }
-
-    void CheckIfLastText()
+    void PrintLineComplete()
     {
-        Debug.Log("index: "+index);
-        if (index >= lines.Length)
+        StopAllCoroutines();
+        isTyping = false;
+        textComponent.text = lines[index];
+    }
+
+
+    void ResetTyping()
+    {
+
+        textComponent.text = string.Empty;
+        StartCoroutine(TypeLine());
+    }
+    IEnumerator TypeLine()
+    {
+        isTyping = true;
+        foreach (char c in lines[index].ToCharArray())
         {
-            SceneManager.LoadScene(sceneName);
+            textComponent.text += c;
+            yield return new WaitForSeconds(textSpeed);
         }
+        isTyping = false;
+    }
+    bool isLastText()
+    {
+        return index == lines.Length - 1;
     }
 }
